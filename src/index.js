@@ -6,7 +6,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import _ from 'lodash';
 
-const API_KEY = 'AIzaSyDsTqqfoIAC2j3JjSSeqUlTedBIA-AAGUI';
+const { apiKey } = require('./key')
 
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
     }
 
     videoSearch(term) {
-        YTSearch({ key: API_KEY, term: term }, (videos) => {
+        YTSearch({ key: { apiKey }, term: term }, (videos) => {
             this.setState({ 
                 videos: videos,
                 selectedVideo: videos[0]
